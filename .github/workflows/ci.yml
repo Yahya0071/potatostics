@@ -1,0 +1,147 @@
+name: Potatostics CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    name: ${{ matrix.os }} (Python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install system dependencies (Ubuntu)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl1 libegl1 libxkbcommon-x11-0 libdbus-1-3 libxcb* xvfb
+
+      - name: Build clean source archive
+        shell: bash
+        run: |
+          python scripts/create_clean_release_archive.py
+
+      - name: Release acceptance script smoke test
+        shell: bash
+        run: |
+          python scripts/run_release_acceptance.py --help
+
+      - name: Build wheel from source
+        run: |
+          python -m pip install --upgrade pip build
+          python -m build --wheel
+
+      - name: Create clean venv and install wheel
+        id: install_wheel
+        shell: bash
+        run: |
+          python -m venv clean_venv
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            source clean_venv/Scripts/activate
+          else
+            source clean_venv/bin/activate
+          fi
+          python -m pip install --upgrade pip
+          python -m pip install dist/potatostics-*.whl
+          python -m pip check
+
+      - name: Verify installed wheel outside the checkout
+        id: wheel_smoke
+        shell: bash
+        env:
+          QT_QPA_PLATFORM: offscreen
+          MPLBACKEND: Agg
+          POTATOSTICS_TESTING: "1"
+        run: |
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            source clean_venv/Scripts/activate
+          else
+            source clean_venv/bin/activate
+          fi
+          unset PYTHONPATH
+          smoke_dir=$(mktemp -d)
+          cd "$smoke_dir"
+          python -I - <<'PY'
+          from importlib.resources import as_file, files
+          from pathlib import Path
+          from sysconfig import get_path
+
+          import engine
+          import gui_qt
+          import main
+          import pandas as pd
+
+          site_packages = Path(get_path("purelib")).resolve()
+          for module in (engine, gui_qt, main):
+              source = Path(module.__file__).resolve()
+              assert source.is_relative_to(site_packages), f"Expected installed {module.__name__}, got {source}"
+              print(f"{module.__name__} loaded from {source}")
+
+          from engine.dataset import Dataset
+          def _load_dta(path):
+              d = Dataset()
+              d.load_dta(str(path))
+              return d.df
+          data = files(engine).joinpath("assets").joinpath("data")
+          for asset, read in (
+              (data.joinpath("auto.dta"), _load_dta),
+              (data.joinpath("basque.csv"), pd.read_csv),
+              (data.joinpath("mpdta.csv"), pd.read_csv),
+              (files(gui_qt).joinpath("sample_data.csv"), pd.read_csv),
+          ):
+              with as_file(asset) as asset_path:
+                  rows = len(read(asset_path))
+              assert rows > 0, f"No rows in installed dataset {asset.name}"
+              print(f"Loaded {asset.name}: {rows} rows")
+          PY
+          potatostics --version
+          potatostics --gui-smoke
+
+      - name: Run full source test suite from the checkout
+        id: source_tests
+        if: ${{ !cancelled() && steps.install_wheel.outcome == 'success' }}
+        shell: bash
+        env:
+          QT_QPA_PLATFORM: offscreen
+          MPLBACKEND: Agg
+        run: |
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            source clean_venv/Scripts/activate
+          else
+            source clean_venv/bin/activate
+          fi
+          wheels=(dist/potatostics-*.whl)
+          python -m pip install "${wheels[0]}[dev]"
+          python -m pytest tests
+
+      - name: Check Python source with Ruff
+        if: ${{ matrix.os == 'ubuntu-latest' && matrix.python-version == '3.12' }}
+        run: clean_venv/bin/python -m ruff check .
+
+      - name: Report per-OS test results
+        if: always()
+        shell: bash
+        run: |
+          echo "## CI Test Execution Report" >> $GITHUB_STEP_SUMMARY
+          echo "| Parameter | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "| :--- | :--- |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Operating System** | \`${{ matrix.os }}\` (${{ runner.os }}) |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Python Version** | \`${{ matrix.python-version }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Installed wheel smoke outside checkout** | ${{ steps.wheel_smoke.outcome }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Full source test suite** | ${{ steps.source_tests.outcome }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Final Status** | **${{ job.status }}** |" >> $GITHUB_STEP_SUMMARY

@@ -1,0 +1,49 @@
+# Build artifacts & packages
+build/
+dist/
+*.egg-info/
+egg-info/
+*.whl
+
+# Bytecode & Caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.hypothesis/
+.ruff_cache/
+
+# Local working dataset
+/atm_cash_monthly_clean.csv
+
+# Test & Smoke outputs
+tests/test_outputs/
+tests/test_io_temp/
+tests/test_egm_outputs/
+tests/test_bigdata_outputs/
+tests/data/benchmark_results/quality_report.json
+tests/data/benchmark_results/quality_report.md
+tests/data/benchmark_results/researcher_headless.json
+tests/data/benchmark_results/researcher_visible.json
+tests/data/benchmark_results/screenshots/
+test_outputs/
+potatostics_startup.log
+scratch/
+Review/
+clean_venv/
+test_env/
+%TEMP%/
+
+# Reference PDFs (avoid committing copyrighted publisher papers)
+References/*.pdf
+*.pdf
+
+# Release archives
+*.zip
+potatostics-source-release.zip
+
+# Internal agent/development overlay (kept local, not pushed to GitHub)
+.agents/
+AGENTS.md
+docs/agent-system/
+scripts/validate_antigravity_agents.py

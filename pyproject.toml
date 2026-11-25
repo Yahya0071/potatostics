@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "potatostics"
+version = "1.0.0"
+description = "A fast, defensible econometric software suite and command-driven statistical computing platform in Python."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "LGPL-3.0-or-later" }
+authors = [
+    { name = "Potatostics Team" }
+]
+dependencies = [
+    "PySide6>=6.5.0",
+    "pandas>=2.0.0",
+    "numpy>=1.23.0",
+    "scipy>=1.10.0",
+    "statsmodels>=0.14.0",
+    "matplotlib>=3.7.0",
+    "python-docx>=0.8.11",
+    "openpyxl>=3.1.0",
+    "platformdirs>=3.0.0",
+    "polars>=0.19.0",
+    "pyarrow>=12.0.0",
+]
+
+[project.optional-dependencies]
+legacy-gui = [
+    "customtkinter>=5.2.0",
+    "pillow>=10.0.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "hypothesis>=6.0.0",
+    "ruff>=0.1.0",
+    "linearmodels>=5.0",
+    "tomli>=2.0; python_version < '3.11'",
+]
+build = [
+    "build>=1.0.0",
+    "wheel",
+    "pyinstaller>=6.0.0",
+]
+
+[project.scripts]
+potatostics = "main:main"
+
+[tool.setuptools]
+py-modules = ["main", "assets"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["engine*", "gui*", "gui_qt*"]
+
+[tool.setuptools.package-data]
+engine = ["assets/data/*"]
+gui = ["assets/*", "sample_data.csv"]
+gui_qt = ["assets/*", "sample_data.csv"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+exclude = [
+    ".git",
+    "build",
+    "dist",
+    "scratch",
+    ".pytest_cache",
+    "__pycache__",
+]
+
+[tool.ruff.lint]
+select = [
+    "F",    # Pyflakes (undefined variables, syntax bugs, import errors)
+    "E722", # Bare except clauses
+    "B",    # flake8-bugbear (design bugs, loop closure variable leaks)
+]
+ignore = [
+    "B007", # Unused loop control variable
+    "B905", # zip without strict=
+    "B904", # raise ... from err
+]

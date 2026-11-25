@@ -1,0 +1,4383 @@
+[
+  {
+    "benchmark_id": "BENCH_01_OLS_CLASSICAL",
+    "estimator_name": "ols",
+    "dataset_id": "auto.dta",
+    "specification": "price ~ mpg + weight",
+    "reference_implementation": "statsmodels.regression.linear_model.OLS",
+    "reference_version": "0.15.0",
+    "potatostics_version": "1.0.0",
+    "sample_size": 74,
+    "sample_selection": "Complete cases (N=74)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg",
+        "weight"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": 1946.0686679649007,
+        "mpg": -49.51222066635611,
+        "weight": 1.7465591583457512
+      },
+      "reference_values": {
+        "const": 1946.0686679648456,
+        "mpg": -49.51222066635562,
+        "weight": 1.746559158345752
+      },
+      "absolute_differences": {
+        "const": 5.502442945726216e-11,
+        "mpg": 4.902744876744691e-13,
+        "weight": 8.881784197001252e-16
+      },
+      "relative_differences": {
+        "const": 2.8274659760493167e-14,
+        "mpg": 9.902090455167544e-15,
+        "weight": 5.085303955815391e-16
+      },
+      "max_abs_diff": 5.502442945726216e-11,
+      "max_rel_diff": 2.8274659760493167e-14,
+      "abs_tolerance": 1e-07,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg",
+        "weight"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": 3597.049598758086,
+        "mpg": 86.15603886718473,
+        "weight": 0.6413537894299922
+      },
+      "reference_values": {
+        "const": 3597.049598758004,
+        "mpg": 86.15603886718401,
+        "weight": 0.6413537894299913
+      },
+      "absolute_differences": {
+        "const": 8.230927051045e-11,
+        "mpg": 7.247535904753022e-13,
+        "weight": 8.881784197001252e-16
+      },
+      "relative_differences": {
+        "const": 2.2882439691370924e-14,
+        "mpg": 8.412104363253796e-15,
+        "weight": 1.3848494143762703e-15
+      },
+      "max_abs_diff": 8.230927051045e-11,
+      "max_rel_diff": 2.2882439691370924e-14,
+      "abs_tolerance": 1e-07,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "covariance_comparison": {
+      "max_abs_diff": 5.923211574554443e-07,
+      "passed": true
+    },
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "mpg": -49.51222066635611,
+          "weight": 1.7465591583457512,
+          "_cons": 1946.0686679649007
+        },
+        "reference_value": {
+          "const": 1946.0686679648456,
+          "mpg": -49.51222066635562,
+          "weight": 1.746559158345752
+        },
+        "difference": 5.502442945726216e-11,
+        "abs_tolerance": 1e-07,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "standard_errors",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "mpg": 86.15603886718473,
+          "weight": 0.6413537894299922,
+          "_cons": 3597.049598758086
+        },
+        "reference_value": {
+          "const": 3597.049598758004,
+          "mpg": 86.15603886718401,
+          "weight": 0.6413537894299913
+        },
+        "difference": 8.230927051045e-11,
+        "abs_tolerance": 1e-07,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "covariance_matrix",
+        "metric_type": "MATRIX_NUMERICAL",
+        "potatostics_value": [
+          [
+            7422.863033283847,
+            44.60165921536999,
+            -292759.8226424002
+          ],
+          [
+            44.60165921536999,
+            0.41133468321621086,
+            -2191.9031965034233
+          ],
+          [
+            -292759.8226424002,
+            -2191.9031965034233,
+            12938765.815925708
+          ]
+        ],
+        "reference_value": [
+          [
+            7422.863033283722,
+            44.601659215369594,
+            -292759.8226423904
+          ],
+          [
+            44.601659215369594,
+            0.4113346832162097,
+            -2191.9031965033755
+          ],
+          [
+            -292759.8226423904,
+            -2191.9031965033755,
+            12938765.815925116
+          ]
+        ],
+        "difference": 5.923211574554443e-07,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "r2_potatostics": 0.2933891231947529,
+      "r2_reference": 0.29338912319475285,
+      "r2_diff": 5.551115123125783e-17,
+      "df_resid": 71
+    },
+    "abs_tolerance": 1e-07,
+    "rel_tolerance": 1e-05,
+    "validation_method": "INDEPENDENT_EXTERNAL",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_02_OLS_ROBUST_HC1",
+    "estimator_name": "ols_hc1",
+    "dataset_id": "auto.dta",
+    "specification": "price ~ mpg + weight [vce=robust / HC1]",
+    "reference_implementation": "statsmodels.regression.linear_model.OLS(cov_type='HC1')",
+    "reference_version": "0.15.0",
+    "potatostics_version": "1.0.0",
+    "sample_size": 74,
+    "sample_selection": "Complete cases (N=74)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg",
+        "weight"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": 1946.0686679649007,
+        "mpg": -49.51222066635611,
+        "weight": 1.7465591583457512
+      },
+      "reference_values": {
+        "const": 1946.0686679648456,
+        "mpg": -49.51222066635562,
+        "weight": 1.746559158345752
+      },
+      "absolute_differences": {
+        "const": 5.502442945726216e-11,
+        "mpg": 4.902744876744691e-13,
+        "weight": 8.881784197001252e-16
+      },
+      "relative_differences": {
+        "const": 2.8274659760493167e-14,
+        "mpg": 9.902090455167544e-15,
+        "weight": 5.085303955815391e-16
+      },
+      "max_abs_diff": 5.502442945726216e-11,
+      "max_rel_diff": 2.8274659760493167e-14,
+      "abs_tolerance": 1e-07,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg",
+        "weight"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": 4213.7926514307655,
+        "mpg": 95.80740087209107,
+        "weight": 0.7778369564253359
+      },
+      "reference_values": {
+        "const": 4213.792651430739,
+        "mpg": 95.80740087209209,
+        "weight": 0.7778369564253447
+      },
+      "absolute_differences": {
+        "const": 2.637534635141492e-11,
+        "mpg": 1.0231815394945443e-12,
+        "weight": 8.770761894538737e-15
+      },
+      "relative_differences": {
+        "const": 6.2592890854417126e-15,
+        "mpg": 1.0679566820318458e-14,
+        "weight": 1.12758359217669e-14
+      },
+      "max_abs_diff": 2.637534635141492e-11,
+      "max_rel_diff": 1.12758359217669e-14,
+      "abs_tolerance": 1e-07,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "covariance_comparison": {
+      "max_abs_diff": 2.1979212760925293e-07,
+      "passed": true
+    },
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "mpg": -49.51222066635611,
+          "weight": 1.7465591583457512,
+          "_cons": 1946.0686679649007
+        },
+        "reference_value": {
+          "const": 1946.0686679648456,
+          "mpg": -49.51222066635562,
+          "weight": 1.746559158345752
+        },
+        "difference": 5.502442945726216e-11,
+        "abs_tolerance": 1e-07,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "standard_errors",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "mpg": 95.80740087209107,
+          "weight": 0.7778369564253359,
+          "_cons": 4213.7926514307655
+        },
+        "reference_value": {
+          "const": 4213.792651430739,
+          "mpg": 95.80740087209209,
+          "weight": 0.7778369564253447
+        },
+        "difference": 2.637534635141492e-11,
+        "abs_tolerance": 1e-07,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "covariance_matrix",
+        "metric_type": "MATRIX_NUMERICAL",
+        "potatostics_value": [
+          [
+            9179.058061865555,
+            64.67579647709525,
+            -391970.9097529577
+          ],
+          [
+            64.67579647709601,
+            0.6050303307810299,
+            -3141.697380349606
+          ],
+          [
+            -391970.9097529599,
+            -3141.6973803495894,
+            17756048.509251922
+          ]
+        ],
+        "reference_value": [
+          [
+            9179.058061865751,
+            64.6757964770972,
+            -391970.9097529603
+          ],
+          [
+            64.67579647709721,
+            0.6050303307810436,
+            -3141.6973803496194
+          ],
+          [
+            -391970.9097529604,
+            -3141.6973803496194,
+            17756048.509251703
+          ]
+        ],
+        "difference": 2.1979212760925293e-07,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "df_resid": 71
+    },
+    "abs_tolerance": 1e-07,
+    "rel_tolerance": 1e-05,
+    "validation_method": "INDEPENDENT_EXTERNAL",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_03_OLS_CLUSTER",
+    "estimator_name": "ols_cluster",
+    "dataset_id": "auto.dta",
+    "specification": "price ~ mpg + weight [cluster=cluster_id]",
+    "reference_implementation": "statsmodels.regression.linear_model.OLS(cov_type='cluster')",
+    "reference_version": "0.15.0",
+    "potatostics_version": "1.0.0",
+    "sample_size": 74,
+    "sample_selection": "Complete cases with 5 synthetic cluster groups (N=74, G=5)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg",
+        "weight"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": 1946.0686679649007,
+        "mpg": -49.51222066635611,
+        "weight": 1.7465591583457512
+      },
+      "reference_values": {
+        "const": 1946.0686679648456,
+        "mpg": -49.51222066635562,
+        "weight": 1.746559158345752
+      },
+      "absolute_differences": {
+        "const": 5.502442945726216e-11,
+        "mpg": 4.902744876744691e-13,
+        "weight": 8.881784197001252e-16
+      },
+      "relative_differences": {
+        "const": 2.8274659760493167e-14,
+        "mpg": 9.902090455167544e-15,
+        "weight": 5.085303955815391e-16
+      },
+      "max_abs_diff": 5.502442945726216e-11,
+      "max_rel_diff": 2.8274659760493167e-14,
+      "abs_tolerance": 1e-07,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg",
+        "weight"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": 3341.657763461244,
+        "mpg": 87.94112011036785,
+        "weight": 0.5084879812833373
+      },
+      "reference_values": {
+        "const": 3341.657763461005,
+        "mpg": 87.94112011036118,
+        "weight": 0.5084879812833352
+      },
+      "absolute_differences": {
+        "const": 2.3919710656628013e-10,
+        "mpg": 6.66489086142974e-12,
+        "weight": 2.1094237467877974e-15
+      },
+      "relative_differences": {
+        "const": 7.158037222774725e-14,
+        "mpg": 7.578810518976418e-14,
+        "weight": 4.148424002990157e-15
+      },
+      "max_abs_diff": 2.3919710656628013e-10,
+      "max_rel_diff": 7.578810518976418e-14,
+      "abs_tolerance": 1e-06,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "covariance_comparison": {
+      "max_abs_diff": 1.600012183189392e-06,
+      "passed": false
+    },
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "mpg": -49.51222066635611,
+          "weight": 1.7465591583457512,
+          "_cons": 1946.0686679649007
+        },
+        "reference_value": {
+          "const": 1946.0686679648456,
+          "mpg": -49.51222066635562,
+          "weight": 1.746559158345752
+        },
+        "difference": 5.502442945726216e-11,
+        "abs_tolerance": 1e-07,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "standard_errors",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "mpg": 87.94112011036785,
+          "weight": 0.5084879812833373,
+          "_cons": 3341.657763461244
+        },
+        "reference_value": {
+          "const": 3341.657763461005,
+          "mpg": 87.94112011036118,
+          "weight": 0.5084879812833352
+        },
+        "difference": 2.3919710656628013e-10,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "covariance_matrix",
+        "metric_type": "MATRIX_NUMERICAL",
+        "potatostics_value": [
+          [
+            7733.6406062661445,
+            38.01814505991361,
+            -286587.3508482296
+          ],
+          [
+            38.01814505991325,
+            0.2585600271096036,
+            -1603.6590299999152
+          ],
+          [
+            -286587.3508482285,
+            -1603.6590299999239,
+            11166676.608100804
+          ]
+        ],
+        "reference_value": [
+          [
+            7733.640606264973,
+            38.018145059909635,
+            -286587.3508481841
+          ],
+          [
+            38.01814505991001,
+            0.25856002710960146,
+            -1603.659029999797
+          ],
+          [
+            -286587.35084818635,
+            -1603.6590299997977,
+            11166676.608099204
+          ]
+        ],
+        "difference": 1.600012183189392e-06,
+        "abs_tolerance": 1e-05,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "cluster_count",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": 5,
+        "reference_value": 5,
+        "difference": 0.0,
+        "abs_tolerance": 0.0,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "n_clusters_potatostics": 5,
+      "n_clusters_reference": 5,
+      "df_resid_potatostics": 4,
+      "covariance_correction": "G / (G - 1) * (N - 1) / (N - K)"
+    },
+    "abs_tolerance": 1e-06,
+    "rel_tolerance": 1e-05,
+    "validation_method": "INDEPENDENT_EXTERNAL",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_04_LOGIT_MLE",
+    "estimator_name": "logit",
+    "dataset_id": "auto.dta",
+    "specification": "foreign ~ price + mpg",
+    "reference_implementation": "statsmodels.discrete.discrete_model.Logit",
+    "reference_version": "0.15.0",
+    "potatostics_version": "1.0.0",
+    "sample_size": 74,
+    "sample_selection": "Complete cases (N=74)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg",
+        "price"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": -7.648111304853088,
+        "mpg": 0.23383525612820097,
+        "price": 0.00026601884389879804
+      },
+      "reference_values": {
+        "const": -7.648111304856446,
+        "mpg": 0.23383525612830228,
+        "price": 0.000266018843898946
+      },
+      "absolute_differences": {
+        "const": 3.3582026048861735e-12,
+        "mpg": 1.0130785099704553e-13,
+        "price": 1.4793938643564708e-16
+      },
+      "relative_differences": {
+        "const": 4.3908913861566854e-13,
+        "mpg": 4.332445529148918e-13,
+        "price": 5.561237101377886e-13
+      },
+      "max_abs_diff": 3.3582026048861735e-12,
+      "max_rel_diff": 5.561237101377886e-13,
+      "abs_tolerance": 1e-06,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg",
+        "price"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": 2.043672823542209,
+        "mpg": 0.06714485431657573,
+        "price": 0.00011657619575832271
+      },
+      "reference_values": {
+        "const": 2.0436728235427615,
+        "mpg": 0.06714485431659199,
+        "price": 0.00011657619575834476
+      },
+      "absolute_differences": {
+        "const": 5.524469770534779e-13,
+        "mpg": 1.6264767310758543e-14,
+        "price": 2.2049961682923946e-17
+      },
+      "relative_differences": {
+        "const": 2.703206553854331e-13,
+        "mpg": 2.4223400998189966e-13,
+        "price": 1.8914634792708583e-13
+      },
+      "max_abs_diff": 5.524469770534779e-13,
+      "max_rel_diff": 2.703206553854331e-13,
+      "abs_tolerance": 1e-06,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "price": 0.00026601884389879804,
+          "mpg": 0.23383525612820097,
+          "_cons": -7.648111304853088
+        },
+        "reference_value": {
+          "const": -7.648111304856446,
+          "price": 0.000266018843898946,
+          "mpg": 0.23383525612830228
+        },
+        "difference": 3.3582026048861735e-12,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "standard_errors",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "price": 0.00011657619575832271,
+          "mpg": 0.06714485431657573,
+          "_cons": 2.043672823542209
+        },
+        "reference_value": {
+          "const": 2.0436728235427615,
+          "price": 0.00011657619575834476,
+          "mpg": 0.06714485431659199
+        },
+        "difference": 5.524469770534779e-13,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "log_likelihood",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": -36.46218949553516,
+        "reference_value": -36.462189495535306,
+        "difference": 1.4210854715202004e-13,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "convergence",
+        "metric_type": "BOOLEAN_ASSERTION",
+        "potatostics_value": true,
+        "reference_value": true,
+        "difference": 0.0,
+        "abs_tolerance": null,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "log_likelihood_potatostics": -36.46218949553516,
+      "log_likelihood_reference": -36.462189495535306,
+      "ll_abs_diff": 1.4210854715202004e-13,
+      "converged": true
+    },
+    "abs_tolerance": 1e-06,
+    "rel_tolerance": 1e-05,
+    "validation_method": "INDEPENDENT_EXTERNAL",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_05_PROBIT_MLE",
+    "estimator_name": "probit",
+    "dataset_id": "auto.dta",
+    "specification": "foreign ~ price + mpg",
+    "reference_implementation": "statsmodels.discrete.discrete_model.Probit",
+    "reference_version": "0.15.0",
+    "potatostics_version": "1.0.0",
+    "sample_size": 74,
+    "sample_selection": "Complete cases (N=74)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg",
+        "price"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": -4.592057710296787,
+        "mpg": 0.14048762002140688,
+        "price": 0.00015710855016240458
+      },
+      "reference_values": {
+        "const": -4.5920577102967925,
+        "mpg": 0.14048762002140705,
+        "price": 0.00015710855016240477
+      },
+      "absolute_differences": {
+        "const": 5.329070518200751e-15,
+        "mpg": 1.6653345369377348e-16,
+        "price": 1.8973538018496328e-19
+      },
+      "relative_differences": {
+        "const": 1.1604972877956981e-15,
+        "mpg": 1.1853959350183144e-15,
+        "price": 1.2076706200192912e-15
+      },
+      "max_abs_diff": 5.329070518200751e-15,
+      "max_rel_diff": 1.2076706200192912e-15,
+      "abs_tolerance": 1e-06,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg",
+        "price"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": 1.11592094738518,
+        "mpg": 0.037359922312208325,
+        "price": 6.410295552322163e-05
+      },
+      "reference_values": {
+        "const": 1.1159209473851661,
+        "mpg": 0.03735992231220783,
+        "price": 6.41029555232213e-05
+      },
+      "absolute_differences": {
+        "const": 1.3988810110276972e-14,
+        "mpg": 4.926614671774132e-16,
+        "price": 3.2526065174565133e-19
+      },
+      "relative_differences": {
+        "const": 1.2535664056719835e-14,
+        "mpg": 1.3186897527793567e-14,
+        "price": 5.074035184350051e-15
+      },
+      "max_abs_diff": 1.3988810110276972e-14,
+      "max_rel_diff": 1.3186897527793567e-14,
+      "abs_tolerance": 1e-06,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "price": 0.00015710855016240458,
+          "mpg": 0.14048762002140688,
+          "_cons": -4.592057710296787
+        },
+        "reference_value": {
+          "const": -4.5920577102967925,
+          "price": 0.00015710855016240477,
+          "mpg": 0.14048762002140705
+        },
+        "difference": 5.329070518200751e-15,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "standard_errors",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "price": 6.410295552322163e-05,
+          "mpg": 0.037359922312208325,
+          "_cons": 1.11592094738518
+        },
+        "reference_value": {
+          "const": 1.1159209473851661,
+          "price": 6.41029555232213e-05,
+          "mpg": 0.03735992231220783
+        },
+        "difference": 1.3988810110276972e-14,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "log_likelihood",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": -36.26606797577578,
+        "reference_value": -36.26606797577578,
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "convergence",
+        "metric_type": "BOOLEAN_ASSERTION",
+        "potatostics_value": true,
+        "reference_value": true,
+        "difference": 0.0,
+        "abs_tolerance": null,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "log_likelihood_potatostics": -36.26606797577578,
+      "log_likelihood_reference": -36.26606797577578,
+      "ll_abs_diff": 0.0,
+      "converged": true
+    },
+    "abs_tolerance": 1e-06,
+    "rel_tolerance": 1e-05,
+    "validation_method": "INDEPENDENT_EXTERNAL",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_06_POISSON_MLE",
+    "estimator_name": "poisson",
+    "dataset_id": "auto.dta",
+    "specification": "rep78 ~ price + mpg",
+    "reference_implementation": "statsmodels.discrete.discrete_model.Poisson",
+    "reference_version": "0.15.0",
+    "potatostics_version": "1.0.0",
+    "sample_size": 69,
+    "sample_selection": "Listwise complete cases on rep78, price, mpg (N=69)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg",
+        "price"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": 0.5753581244497964,
+        "mpg": 0.023589126583712604,
+        "price": 2.2789511832620593e-05
+      },
+      "reference_values": {
+        "const": 0.5753581242417768,
+        "mpg": 0.02358912659029655,
+        "price": 2.2789511829675527e-05
+      },
+      "absolute_differences": {
+        "const": 2.0801960154415156e-10,
+        "mpg": 6.58394519459371e-12,
+        "price": 2.945065794967422e-15
+      },
+      "relative_differences": {
+        "const": 3.6154803900316114e-10,
+        "mpg": 2.791093247726278e-10,
+        "price": 1.2922899871564968e-10
+      },
+      "max_abs_diff": 2.0801960154415156e-10,
+      "max_rel_diff": 3.6154803900316114e-10,
+      "abs_tolerance": 1e-06,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg",
+        "price"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": 0.3599811451930883,
+        "mpg": 0.01171904387276502,
+        "price": 2.488767737301094e-05
+      },
+      "reference_values": {
+        "const": 0.35998114520522584,
+        "mpg": 0.011719043872982123,
+        "price": 2.4887677374415806e-05
+      },
+      "absolute_differences": {
+        "const": 1.2137513216714524e-11,
+        "mpg": 2.1710237774197338e-13,
+        "price": 1.4048651293934594e-15
+      },
+      "relative_differences": {
+        "const": 3.3717080403738665e-11,
+        "mpg": 1.8525604997733298e-11,
+        "price": 5.644822167445973e-11
+      },
+      "max_abs_diff": 1.2137513216714524e-11,
+      "max_rel_diff": 5.644822167445973e-11,
+      "abs_tolerance": 1e-06,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "price": 2.2789511832620593e-05,
+          "mpg": 0.023589126583712604,
+          "_cons": 0.5753581244497964
+        },
+        "reference_value": {
+          "const": 0.5753581242417768,
+          "price": 2.2789511829675527e-05,
+          "mpg": 0.02358912659029655
+        },
+        "difference": 2.0801960154415156e-10,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "standard_errors",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "price": 2.488767737301094e-05,
+          "mpg": 0.01171904387276502,
+          "_cons": 0.3599811451930883
+        },
+        "reference_value": {
+          "const": 0.35998114520522584,
+          "price": 2.4887677374415806e-05,
+          "mpg": 0.011719043872982123
+        },
+        "difference": 1.2137513216714524e-11,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "log_likelihood",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": -114.24447673372032,
+        "reference_value": -114.24447673372033,
+        "difference": 1.4210854715202004e-14,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "convergence",
+        "metric_type": "BOOLEAN_ASSERTION",
+        "potatostics_value": true,
+        "reference_value": true,
+        "difference": 0.0,
+        "abs_tolerance": null,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "log_likelihood_potatostics": -114.24447673372032,
+      "log_likelihood_reference": -114.24447673372033,
+      "ll_abs_diff": 1.4210854715202004e-14,
+      "converged": true
+    },
+    "abs_tolerance": 1e-06,
+    "rel_tolerance": 1e-05,
+    "validation_method": "INDEPENDENT_EXTERNAL",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_07_QUANTILE_REGRESSION",
+    "estimator_name": "qreg",
+    "dataset_id": "auto.dta",
+    "specification": "price ~ mpg [quantile=0.5]",
+    "reference_implementation": "statsmodels.regression.quantile_regression.QuantReg",
+    "reference_version": "0.15.0",
+    "potatostics_version": "1.0.0",
+    "sample_size": 74,
+    "sample_selection": "Complete cases (N=74)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": 8088.666661445045,
+        "mpg": -135.66666644446164
+      },
+      "reference_values": {
+        "const": 8088.666661457663,
+        "mpg": -135.66666644499483
+      },
+      "absolute_differences": {
+        "const": 1.2618329492397606e-08,
+        "mpg": 5.331912689143792e-10
+      },
+      "relative_differences": {
+        "const": 1.5600011745475551e-12,
+        "mpg": 3.930156779746322e-12
+      },
+      "max_abs_diff": 1.2618329492397606e-08,
+      "max_rel_diff": 3.930156779746322e-12,
+      "abs_tolerance": 1e-05,
+      "rel_tolerance": 0.0001,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": {
+      "matched_keys": [
+        "const",
+        "mpg"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "const": 1036.2326691934597,
+        "mpg": 46.97574106390013
+      },
+      "reference_values": {
+        "const": 1036.2326691939243,
+        "mpg": 46.97574106392062
+      },
+      "absolute_differences": {
+        "const": 4.645244189305231e-10,
+        "mpg": 2.049205249932129e-11
+      },
+      "relative_differences": {
+        "const": 4.482819667245893e-13,
+        "mpg": 4.3622627414088975e-13
+      },
+      "max_abs_diff": 4.645244189305231e-10,
+      "max_rel_diff": 4.482819667245893e-13,
+      "abs_tolerance": 1e-05,
+      "rel_tolerance": 0.0001,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "mpg": -135.66666644446164,
+          "_cons": 8088.666661445045
+        },
+        "reference_value": {
+          "const": 8088.666661457663,
+          "mpg": -135.66666644499483
+        },
+        "difference": 1.2618329492397606e-08,
+        "abs_tolerance": 1e-05,
+        "rel_tolerance": 0.0001,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "standard_errors",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "mpg": 46.97574106390013,
+          "_cons": 1036.2326691934597
+        },
+        "reference_value": {
+          "const": 1036.2326691939243,
+          "mpg": 46.97574106392062
+        },
+        "difference": 4.645244189305231e-10,
+        "abs_tolerance": 1e-05,
+        "rel_tolerance": 0.0001,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "objective_function_positive",
+        "metric_type": "FINITE_DIAGNOSTIC",
+        "potatostics_value": 64760.83333355554,
+        "reference_value": null,
+        "difference": 0.0,
+        "abs_tolerance": null,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "convergence",
+        "metric_type": "BOOLEAN_ASSERTION",
+        "potatostics_value": true,
+        "reference_value": true,
+        "difference": 0.0,
+        "abs_tolerance": null,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "quantile": 0.5,
+      "covariance_estimator": "Hall-Sheather bandwidth with Epanechnikov kernel (IID)",
+      "objective_function_val": 64760.83333355554,
+      "converged": true,
+      "iterations": 40
+    },
+    "abs_tolerance": 1e-05,
+    "rel_tolerance": 0.0001,
+    "validation_method": "INDEPENDENT_EXTERNAL",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_08_IVREGRESS_2SLS",
+    "estimator_name": "ivregress_2sls",
+    "dataset_id": "simulated_iv (DGP: y=5+2x+e, x=1.5z+u)",
+    "specification": "y ~ (x = z) [2SLS]",
+    "reference_implementation": "linearmodels.iv.model.IV2SLS",
+    "reference_version": "7.1",
+    "potatostics_version": "1.0.0",
+    "sample_size": 500,
+    "sample_selection": "Synthetic linear IV DGP (N=500)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "x"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "x": 1.93742655320274
+      },
+      "reference_values": {
+        "x": 1.93742655320274
+      },
+      "absolute_differences": {
+        "x": 0.0
+      },
+      "relative_differences": {
+        "x": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "max_rel_diff": 0.0,
+      "abs_tolerance": 1e-06,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": {
+      "matched_keys": [
+        "x"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "x": 0.031683805269047564
+      },
+      "reference_values": {
+        "x": 0.031683805269047564
+      },
+      "absolute_differences": {
+        "x": 0.0
+      },
+      "relative_differences": {
+        "x": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "max_rel_diff": 0.0,
+      "abs_tolerance": 1e-06,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "covariance_comparison": {
+      "max_abs_diff": 1.431146867680866e-17,
+      "passed": true
+    },
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "x": 1.93742655320274
+        },
+        "reference_value": {
+          "x": 1.93742655320274
+        },
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "standard_errors",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "x": 0.031683805269047564
+        },
+        "reference_value": {
+          "x": 0.031683805269047564
+        },
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "covariance_matrix",
+        "metric_type": "MATRIX_NUMERICAL",
+        "potatostics_value": [
+          [
+            0.0010038635163269263,
+            -3.5855882161673884e-05
+          ],
+          [
+            -3.5855882161673884e-05,
+            0.002000635557581735
+          ]
+        ],
+        "reference_value": [
+          [
+            0.0010038635163269263,
+            -3.58558821616739e-05
+          ],
+          [
+            -3.58558821616739e-05,
+            0.002000635557581749
+          ]
+        ],
+        "difference": 1.431146867680866e-17,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "cov_diff": 1.431146867680866e-17
+    },
+    "abs_tolerance": 1e-06,
+    "rel_tolerance": 1e-05,
+    "validation_method": "INDEPENDENT_EXTERNAL",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_09_PANEL_FE",
+    "estimator_name": "xtreg_fe",
+    "dataset_id": "simulated_panel (50 units x 4 periods)",
+    "specification": "y ~ x [fe / within]",
+    "reference_implementation": "linearmodels.panel.model.PanelOLS(entity_effects=True)",
+    "reference_version": "7.1",
+    "potatostics_version": "1.0.0",
+    "sample_size": 200,
+    "sample_selection": "Balanced panel (N=200, 50 entities, 4 periods)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "x"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "x": 2.747672897530303
+      },
+      "reference_values": {
+        "x": 2.747672897530303
+      },
+      "absolute_differences": {
+        "x": 0.0
+      },
+      "relative_differences": {
+        "x": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "max_rel_diff": 0.0,
+      "abs_tolerance": 1e-06,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": {
+      "matched_keys": [
+        "x"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "x": 0.08192398788313814
+      },
+      "reference_values": {
+        "x": 0.08192398788313815
+      },
+      "absolute_differences": {
+        "x": 1.3877787807814457e-17
+      },
+      "relative_differences": {
+        "x": 1.6939834310325153e-16
+      },
+      "max_abs_diff": 1.3877787807814457e-17,
+      "max_rel_diff": 1.6939834310325153e-16,
+      "abs_tolerance": 1e-06,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "x": 2.747672897530303
+        },
+        "reference_value": {
+          "x": 2.747672897530303
+        },
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "standard_errors",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "x": 0.08192398788313814
+        },
+        "reference_value": {
+          "x": 0.08192398788313815
+        },
+        "difference": 1.3877787807814457e-17,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "within_r2",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": 0.8830349119411495,
+        "reference_value": 0.8830349119411494,
+        "difference": 1.1102230246251565e-16,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "r2_within_potatostics": 0.8830349119411495,
+      "r2_within_reference": 0.8830349119411494,
+      "r2_within_diff": 1.1102230246251565e-16,
+      "df_resid": 149
+    },
+    "abs_tolerance": 1e-06,
+    "rel_tolerance": 1e-05,
+    "validation_method": "INDEPENDENT_EXTERNAL",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_10_HP_FILTER",
+    "estimator_name": "tsfilter_hp",
+    "dataset_id": "simulated_macro_cycles (lengths 50, 100, 250)",
+    "specification": "tsfilter hp cycle = y, smooth(100, 1600, 14400)",
+    "reference_implementation": "statsmodels.tsa.filters.hp_filter.hpfilter",
+    "reference_version": "0.15.0",
+    "potatostics_version": "1.0.0",
+    "sample_size": 400,
+    "sample_selection": "Combined multi-length battery (50 + 100 + 250 = 400 obs)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "trend_component",
+        "cyclical_component"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "max_diff": 0.0
+      },
+      "reference_values": {
+        "max_diff": 0.0
+      },
+      "absolute_differences": {
+        "trend": 0.0,
+        "cycle": 0.0
+      },
+      "relative_differences": {
+        "trend": 0.0,
+        "cycle": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "max_rel_diff": 0.0,
+      "abs_tolerance": 1e-08,
+      "rel_tolerance": 1e-07,
+      "passed": true
+    },
+    "standard_error_comparison": null,
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "trend_and_cycle_components",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "max_trend_diff": 0.0,
+          "max_cycle_diff": 0.0
+        },
+        "reference_value": {
+          "max_trend_diff": 0.0,
+          "max_cycle_diff": 0.0
+        },
+        "difference": 0.0,
+        "abs_tolerance": 1e-08,
+        "rel_tolerance": 1e-07,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "N50_lambda100": {
+        "max_trend_diff": 0.0,
+        "max_cycle_diff": 0.0
+      },
+      "N100_lambda1600": {
+        "max_trend_diff": 0.0,
+        "max_cycle_diff": 0.0
+      },
+      "N250_lambda14400": {
+        "max_trend_diff": 0.0,
+        "max_cycle_diff": 0.0
+      }
+    },
+    "abs_tolerance": 1e-08,
+    "rel_tolerance": 1e-07,
+    "validation_method": "INTERNAL_CONSISTENCY",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_11_VAR",
+    "estimator_name": "var",
+    "dataset_id": "simulated_var (2 series x 150 obs)",
+    "specification": "var y1 y2, lags(1)",
+    "reference_implementation": "statsmodels.tsa.api.VAR",
+    "reference_version": "0.15.0",
+    "potatostics_version": "1.0.0",
+    "sample_size": 150,
+    "sample_selection": "Bivariate VAR(1) with constant (N=150, effective N=149)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "y1:L1.y1",
+        "y1:L1.y2",
+        "y1:_cons",
+        "y2:L1.y1",
+        "y2:L1.y2",
+        "y2:_cons"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "y1:L1.y1": 0.40393409456880947,
+        "y1:L1.y2": 0.1008760521749754,
+        "y1:_cons": -0.04625420435245061,
+        "y2:L1.y1": 0.18131061110746902,
+        "y2:L1.y2": 0.39724206706062765,
+        "y2:_cons": 0.02580510220165718
+      },
+      "reference_values": {
+        "y1:L1.y1": 0.40393409456880947,
+        "y1:L1.y2": 0.1008760521749754,
+        "y1:_cons": -0.04625420435245061,
+        "y2:L1.y1": 0.18131061110746902,
+        "y2:L1.y2": 0.39724206706062765,
+        "y2:_cons": 0.02580510220165718
+      },
+      "absolute_differences": {
+        "y1:L1.y1": 0.0,
+        "y1:L1.y2": 0.0,
+        "y1:_cons": 0.0,
+        "y2:L1.y1": 0.0,
+        "y2:L1.y2": 0.0,
+        "y2:_cons": 0.0
+      },
+      "relative_differences": {
+        "y1:L1.y1": 0.0,
+        "y1:L1.y2": 0.0,
+        "y1:_cons": 0.0,
+        "y2:L1.y1": 0.0,
+        "y2:L1.y2": 0.0,
+        "y2:_cons": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "max_rel_diff": 0.0,
+      "abs_tolerance": 1e-07,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": {
+      "matched_keys": [
+        "y1:L1.y1",
+        "y1:L1.y2",
+        "y1:_cons",
+        "y2:L1.y1",
+        "y2:L1.y2",
+        "y2:_cons"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "y1:L1.y1": 0.07553491257798313,
+        "y1:L1.y2": 0.07106872826915633,
+        "y1:_cons": 0.07910072369897193,
+        "y2:L1.y1": 0.07911430528558282,
+        "y2:L1.y2": 0.07443648072987936,
+        "y2:_cons": 0.08284909043311818
+      },
+      "reference_values": {
+        "y1:L1.y1": 0.07553491257798313,
+        "y1:L1.y2": 0.07106872826915633,
+        "y1:_cons": 0.07910072369897193,
+        "y2:L1.y1": 0.07911430528558282,
+        "y2:L1.y2": 0.07443648072987936,
+        "y2:_cons": 0.08284909043311818
+      },
+      "absolute_differences": {
+        "y1:L1.y1": 0.0,
+        "y1:L1.y2": 0.0,
+        "y1:_cons": 0.0,
+        "y2:L1.y1": 0.0,
+        "y2:L1.y2": 0.0,
+        "y2:_cons": 0.0
+      },
+      "relative_differences": {
+        "y1:L1.y1": 0.0,
+        "y1:L1.y2": 0.0,
+        "y1:_cons": 0.0,
+        "y2:L1.y1": 0.0,
+        "y2:L1.y2": 0.0,
+        "y2:_cons": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "max_rel_diff": 0.0,
+      "abs_tolerance": 1e-07,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "covariance_comparison": {
+      "max_abs_diff": 0.0,
+      "passed": true
+    },
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "y1:_cons": -0.04625420435245061,
+          "y1:L1.y1": 0.40393409456880947,
+          "y1:L1.y2": 0.1008760521749754,
+          "y2:_cons": 0.02580510220165718,
+          "y2:L1.y1": 0.18131061110746902,
+          "y2:L1.y2": 0.39724206706062765
+        },
+        "reference_value": {
+          "y1:_cons": -0.04625420435245061,
+          "y1:L1.y1": 0.40393409456880947,
+          "y1:L1.y2": 0.1008760521749754,
+          "y2:_cons": 0.02580510220165718,
+          "y2:L1.y1": 0.18131061110746902,
+          "y2:L1.y2": 0.39724206706062765
+        },
+        "difference": 0.0,
+        "abs_tolerance": 1e-07,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "standard_errors",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "y1:_cons": 0.07910072369897193,
+          "y1:L1.y1": 0.07553491257798313,
+          "y1:L1.y2": 0.07106872826915633,
+          "y2:_cons": 0.08284909043311818,
+          "y2:L1.y1": 0.07911430528558282,
+          "y2:L1.y2": 0.07443648072987936
+        },
+        "reference_value": {
+          "y1:_cons": 0.07910072369897193,
+          "y1:L1.y1": 0.07553491257798313,
+          "y1:L1.y2": 0.07106872826915633,
+          "y2:_cons": 0.08284909043311818,
+          "y2:L1.y1": 0.07911430528558282,
+          "y2:L1.y2": 0.07443648072987936
+        },
+        "difference": 0.0,
+        "abs_tolerance": 1e-07,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "covariance_matrix",
+        "metric_type": "MATRIX_NUMERICAL",
+        "potatostics_value": [
+          [
+            0.0062569244897011,
+            -5.641305400906898e-05,
+            0.0004929773674329696,
+            -4.444733015400876e-06,
+            -0.00013925252641474432,
+            1.2555146392552277e-06
+          ],
+          [
+            -5.641305400906898e-05,
+            0.006863971785594995,
+            -4.444733015400876e-06,
+            0.0005408060695900211,
+            1.2555146392552277e-06,
+            -0.000152762817252616
+          ],
+          [
+            0.0004929773674329698,
+            -4.444733015400878e-06,
+            0.005705523018163554,
+            -5.144156345556645e-05,
+            -0.0006801122964419804,
+            6.131960162627153e-06
+          ],
+          [
+            -4.444733015400878e-06,
+            0.0005408060695900214,
+            -5.144156345556645e-05,
+            0.006259073300820397,
+            6.131960162627153e-06,
+            -0.000746096843824462
+          ],
+          [
+            -0.00013925252641474432,
+            1.2555146392552277e-06,
+            -0.0006801122964419803,
+            6.1319601626271525e-06,
+            0.005050764137795181,
+            -4.553819221592039e-05
+          ],
+          [
+            1.2555146392552277e-06,
+            -0.000152762817252616,
+            6.1319601626271525e-06,
+            -0.0007460968438244619,
+            -4.553819221592039e-05,
+            0.005540789663449702
+          ]
+        ],
+        "reference_value": [
+          [
+            0.0062569244897011,
+            -5.641305400906898e-05,
+            0.0004929773674329696,
+            -4.444733015400876e-06,
+            -0.00013925252641474432,
+            1.2555146392552277e-06
+          ],
+          [
+            -5.641305400906898e-05,
+            0.006863971785594995,
+            -4.444733015400876e-06,
+            0.0005408060695900211,
+            1.2555146392552277e-06,
+            -0.000152762817252616
+          ],
+          [
+            0.0004929773674329698,
+            -4.444733015400878e-06,
+            0.005705523018163554,
+            -5.144156345556645e-05,
+            -0.0006801122964419804,
+            6.131960162627153e-06
+          ],
+          [
+            -4.444733015400878e-06,
+            0.0005408060695900214,
+            -5.144156345556645e-05,
+            0.006259073300820397,
+            6.131960162627153e-06,
+            -0.000746096843824462
+          ],
+          [
+            -0.00013925252641474432,
+            1.2555146392552277e-06,
+            -0.0006801122964419803,
+            6.1319601626271525e-06,
+            0.005050764137795181,
+            -4.553819221592039e-05
+          ],
+          [
+            1.2555146392552277e-06,
+            -0.000152762817252616,
+            6.1319601626271525e-06,
+            -0.0007460968438244619,
+            -4.553819221592039e-05,
+            0.005540789663449702
+          ]
+        ],
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "residual_covariance_sigma_u",
+        "metric_type": "MATRIX_NUMERICAL",
+        "potatostics_value": [
+          [
+            0.925740862534644,
+            -0.008346571764215709
+          ],
+          [
+            -0.008346571764215709,
+            1.0155563123175428
+          ]
+        ],
+        "reference_value": [
+          [
+            0.925740862534644,
+            -0.008346571764215709
+          ],
+          [
+            -0.008346571764215709,
+            1.0155563123175428
+          ]
+        ],
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "aic",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": -0.0219409355300883,
+        "reference_value": -0.0219409355300883,
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "bic",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": 0.0990233452462389,
+        "reference_value": 0.0990233452462389,
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "log_likelihood",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": -415.2090831980009,
+        "reference_value": -415.2090831980009,
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "aic_diff": 0.0,
+      "bic_diff": 0.0,
+      "log_likelihood_diff": 0.0,
+      "resid_cov_diff": 0.0,
+      "lags": 1,
+      "n_equations": 2
+    },
+    "abs_tolerance": 1e-07,
+    "rel_tolerance": 1e-05,
+    "validation_method": "INTERNAL_CONSISTENCY",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_12_KAPLAN_MEIER",
+    "estimator_name": "sts_list",
+    "dataset_id": "analytical_survival (10 observations, 6 events, 4 censored)",
+    "specification": "sts list, time(time) failure(died)",
+    "reference_implementation": "Kaplan-Meier Product-Limit & Greenwood Formula",
+    "reference_version": "Analytical Identity",
+    "potatostics_version": "1.0.0",
+    "sample_size": 10,
+    "sample_selection": "Complete life table across all 5 distinct death event times",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "S(t=10)",
+        "S(t=12)",
+        "S(t=2)",
+        "S(t=5)",
+        "S(t=8)"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "S(t=10)": 0.36000000000000004,
+        "S(t=12)": 0.18000000000000002,
+        "S(t=2)": 0.9,
+        "S(t=5)": 0.675,
+        "S(t=8)": 0.54
+      },
+      "reference_values": {
+        "S(t=10)": 0.36,
+        "S(t=12)": 0.18,
+        "S(t=2)": 0.9,
+        "S(t=5)": 0.675,
+        "S(t=8)": 0.54
+      },
+      "absolute_differences": {
+        "S(t=10)": 5.551115123125783e-17,
+        "S(t=12)": 2.7755575615628914e-17,
+        "S(t=2)": 0.0,
+        "S(t=5)": 0.0,
+        "S(t=8)": 0.0
+      },
+      "relative_differences": {
+        "S(t=10)": 1.5419764230904951e-16,
+        "S(t=12)": 1.5419764230904951e-16,
+        "S(t=2)": 0.0,
+        "S(t=5)": 0.0,
+        "S(t=8)": 0.0
+      },
+      "max_abs_diff": 5.551115123125783e-17,
+      "max_rel_diff": 1.5419764230904951e-16,
+      "abs_tolerance": 1e-10,
+      "rel_tolerance": 1e-08,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": {
+      "matched_keys": [
+        "SE(t=10)",
+        "SE(t=12)",
+        "SE(t=2)",
+        "SE(t=5)",
+        "SE(t=8)"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "SE(t=10)": 0.18686893802876928,
+        "SE(t=12)": 0.1578923684032892,
+        "SE(t=2)": 0.09486832980505137,
+        "SE(t=5)": 0.155070548461015,
+        "SE(t=8)": 0.17311845655504213
+      },
+      "reference_values": {
+        "SE(t=10)": 0.18686893802876925,
+        "SE(t=12)": 0.1578923684032892,
+        "SE(t=2)": 0.09486832980505137,
+        "SE(t=5)": 0.155070548461015,
+        "SE(t=8)": 0.17311845655504213
+      },
+      "absolute_differences": {
+        "SE(t=10)": 2.7755575615628914e-17,
+        "SE(t=12)": 0.0,
+        "SE(t=2)": 0.0,
+        "SE(t=5)": 0.0,
+        "SE(t=8)": 0.0
+      },
+      "relative_differences": {
+        "SE(t=10)": 1.4852963744758814e-16,
+        "SE(t=12)": 0.0,
+        "SE(t=2)": 0.0,
+        "SE(t=5)": 0.0,
+        "SE(t=8)": 0.0
+      },
+      "max_abs_diff": 2.7755575615628914e-17,
+      "max_rel_diff": 1.4852963744758814e-16,
+      "abs_tolerance": 1e-05,
+      "rel_tolerance": 0.0001,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "survival_function",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "S(t=2)": 0.9,
+          "S(t=5)": 0.675,
+          "S(t=8)": 0.54,
+          "S(t=10)": 0.36000000000000004,
+          "S(t=12)": 0.18000000000000002
+        },
+        "reference_value": {
+          "S(t=2)": 0.9,
+          "S(t=5)": 0.675,
+          "S(t=8)": 0.54,
+          "S(t=10)": 0.36,
+          "S(t=12)": 0.18
+        },
+        "difference": 5.551115123125783e-17,
+        "abs_tolerance": 1e-10,
+        "rel_tolerance": 1e-08,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "greenwood_standard_errors",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "SE(t=2)": 0.09486832980505137,
+          "SE(t=5)": 0.155070548461015,
+          "SE(t=8)": 0.17311845655504213,
+          "SE(t=10)": 0.18686893802876928,
+          "SE(t=12)": 0.1578923684032892
+        },
+        "reference_value": {
+          "SE(t=2)": 0.09486832980505137,
+          "SE(t=5)": 0.155070548461015,
+          "SE(t=8)": 0.17311845655504213,
+          "SE(t=10)": 0.18686893802876925,
+          "SE(t=12)": 0.1578923684032892
+        },
+        "difference": 2.7755575615628914e-17,
+        "abs_tolerance": 1e-05,
+        "rel_tolerance": 0.0001,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "risk_set_counts",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "max_diff": 0
+        },
+        "reference_value": {
+          "max_diff": 0
+        },
+        "difference": 0.0,
+        "abs_tolerance": 0.0,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "risk_set_match": true,
+      "total_events": 6,
+      "total_observations": 10
+    },
+    "abs_tolerance": 1e-10,
+    "rel_tolerance": 1e-08,
+    "validation_method": "ANALYTICAL_GROUND_TRUTH",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_13_BACONDECOMP",
+    "estimator_name": "bacondecomp",
+    "dataset_id": "analytical_staggered_timing (12 units x 4 periods)",
+    "specification": "bacondecomp y d, ivar(id) time(t)",
+    "reference_implementation": "Goodman-Bacon (2021) Decomposition Theorem",
+    "reference_version": "Analytical Theorem Identity",
+    "potatostics_version": "1.0.0",
+    "sample_size": 48,
+    "sample_selection": "Staggered panel: early cohort (t=2), late cohort (t=3), never-treated",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "TWFE_vs_Bacon_Weighted_Sum"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "weighted_bacon": 3.1999999999999997
+      },
+      "reference_values": {
+        "twfe_estimate": 3.2
+      },
+      "absolute_differences": {
+        "TWFE_vs_Bacon_Weighted_Sum": 4.440892098500626e-16
+      },
+      "relative_differences": {
+        "TWFE_vs_Bacon_Weighted_Sum": 1.3877787807814457e-16
+      },
+      "max_abs_diff": 4.440892098500626e-16,
+      "max_rel_diff": 1.3877787807814457e-16,
+      "abs_tolerance": 1e-08,
+      "rel_tolerance": 1e-07,
+      "passed": true
+    },
+    "standard_error_comparison": null,
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "individual_2x2_estimates",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "Treated vs Never Treated_2_vs_Never Treated": 2.0,
+          "Treated vs Never Treated_3_vs_Never Treated": 4.0,
+          "Earlier vs Later Treated_Early (2)_vs_Late (3)": 2.0,
+          "Later vs Earlier Treated_Late (3)_vs_Early (2)": 4.0
+        },
+        "reference_value": {
+          "Treated vs Never Treated_2_vs_Never Treated": 2.0,
+          "Treated vs Never Treated_3_vs_Never Treated": 4.0,
+          "Earlier vs Later Treated_Early (2)_vs_Late (3)": 2.0,
+          "Later vs Earlier Treated_Late (3)_vs_Early (2)": 4.0
+        },
+        "difference": 0.0,
+        "abs_tolerance": 1e-08,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "decomposition_weights",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "Treated vs Never Treated_2_vs_Never Treated": 0.3,
+          "Treated vs Never Treated_3_vs_Never Treated": 0.39999999999999997,
+          "Earlier vs Later Treated_Early (2)_vs_Late (3)": 0.09999999999999999,
+          "Later vs Earlier Treated_Late (3)_vs_Early (2)": 0.2
+        },
+        "reference_value": {
+          "Treated vs Never Treated_2_vs_Never Treated": 0.3,
+          "Treated vs Never Treated_3_vs_Never Treated": 0.4,
+          "Earlier vs Later Treated_Early (2)_vs_Late (3)": 0.1,
+          "Later vs Earlier Treated_Late (3)_vs_Early (2)": 0.2
+        },
+        "difference": 5.551115123125783e-17,
+        "abs_tolerance": 1e-08,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "weights_sum_to_one",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": 1.0,
+        "reference_value": 1.0,
+        "difference": 0.0,
+        "abs_tolerance": 1e-08,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "weighted_sum_matches_twfe",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": 3.1999999999999997,
+        "reference_value": 3.2,
+        "difference": 4.440892098500626e-16,
+        "abs_tolerance": 1e-08,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "twfe_coefficient": 3.2,
+      "weighted_bacon_coefficient": 3.1999999999999997,
+      "weights_sum": 1.0,
+      "weight_normalization_error": 0.0,
+      "max_est_diff": 0.0,
+      "max_wt_diff": 5.551115123125783e-17,
+      "n_comparisons": 4,
+      "comparison_subgroups": [
+        "Treated vs Never Treated",
+        "Earlier vs Later Treated",
+        "Later vs Earlier Treated"
+      ]
+    },
+    "abs_tolerance": 1e-08,
+    "rel_tolerance": 1e-07,
+    "validation_method": "ANALYTICAL_GROUND_TRUTH",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_14_DRDID",
+    "estimator_name": "drdid",
+    "dataset_id": "santanna_zhao_dgp (400 units x 2 periods, True ATT=3.0)",
+    "specification": "drdid y treated t x, ivar(id)",
+    "reference_implementation": "Sant'Anna & Zhao (2020) Doubly Robust DiD (Panel & RC)",
+    "reference_version": "Mathematical Ground Truth ATT=3.0",
+    "potatostics_version": "1.0.0",
+    "sample_size": 800,
+    "sample_selection": "Simulated panel (N=800 obs, 400 units, 2 periods)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "ATT"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "ATT": 3.0040534148151514
+      },
+      "reference_values": {
+        "ATT": 3.0
+      },
+      "absolute_differences": {
+        "ATT": 0.004053414815151424
+      },
+      "relative_differences": {
+        "ATT": 0.0013511382717171412
+      },
+      "max_abs_diff": 0.004053414815151424,
+      "max_rel_diff": 0.0013511382717171412,
+      "abs_tolerance": 0.15,
+      "rel_tolerance": 0.05,
+      "passed": true
+    },
+    "standard_error_comparison": null,
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "att_estimate_panel",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": 3.0040534148151514,
+        "reference_value": 3.0,
+        "difference": 0.004053414815151424,
+        "abs_tolerance": 0.15,
+        "rel_tolerance": 0.05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "att_estimate_repeated_cross_section",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": 2.9903468039983423,
+        "reference_value": 3.0,
+        "difference": 0.009653196001657705,
+        "abs_tolerance": 0.2,
+        "rel_tolerance": 0.07,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "double_robustness_outcome_misspecification",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": 3.0223837849546715,
+        "reference_value": 3.0,
+        "difference": 0.022383784954671526,
+        "abs_tolerance": 0.2,
+        "rel_tolerance": 0.07,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "repeated_cross_section_four_cell_se",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": 1.2649110640673518,
+        "reference_value": 1.2649110640673518,
+        "difference": 0.0,
+        "abs_tolerance": 1e-12,
+        "rel_tolerance": 1e-12,
+        "evaluation_method": "Analytical variance of four independent cell means",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "standard_errors",
+        "metric_type": "NOT_TESTED_RECORD",
+        "potatostics_value": null,
+        "reference_value": null,
+        "difference": null,
+        "abs_tolerance": null,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": false,
+        "status": "NOT_TESTED",
+        "failure_explanation": "No external SE comparison for the covariate-adjusted DRDiD specifications",
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "true_att": 3.0,
+      "panel_att_estimate": 3.0040534148151514,
+      "panel_std_err": 0.02905963061157979,
+      "panel_z_stat": 103.37548522100226,
+      "repeated_cross_section_att": 2.9903468039983423,
+      "repeated_cross_section_diff": 0.009653196001657705,
+      "misspecified_outcome_att": 3.0223837849546715,
+      "misspecified_outcome_diff": 0.022383784954671526,
+      "n_treated_units": 210,
+      "n_control_units": 190,
+      "data_type": "panel"
+    },
+    "abs_tolerance": 0.15,
+    "rel_tolerance": 0.05,
+    "validation_method": "SIMULATION_GROUND_TRUTH",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_15_HP_FILTER_ANALYTICAL",
+    "estimator_name": "tsfilter_hp",
+    "dataset_id": "simulated_hp_series (120 periods)",
+    "specification": "tsfilter hp cycle = y, smooth(100, 1600, 14400) [Analytical Ground Truth]",
+    "reference_implementation": "Closed-Form Central Difference Solve: (I + lambda K'K)^(-1) y",
+    "reference_version": "Analytical Ground Truth",
+    "potatostics_version": "1.0.0",
+    "sample_size": 120,
+    "sample_selection": "120 observations across 3 penalty parameter configurations",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "trend_component",
+        "cyclical_component"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "max_diff": 5.696421112588723e-11
+      },
+      "reference_values": {
+        "max_diff": 0.0
+      },
+      "absolute_differences": {
+        "trend": 5.696421112588723e-11,
+        "cycle": 5.696421112588723e-11
+      },
+      "relative_differences": {
+        "trend": 1.8988070375295745e-12,
+        "cycle": 1.4241052781471808e-11
+      },
+      "max_abs_diff": 5.696421112588723e-11,
+      "max_rel_diff": 1.4241052781471808e-11,
+      "abs_tolerance": 1e-08,
+      "rel_tolerance": 1e-07,
+      "passed": true
+    },
+    "standard_error_comparison": null,
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "trend_and_cycle_components",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "max_trend_diff": 5.696421112588723e-11,
+          "max_cycle_diff": 5.696421112588723e-11
+        },
+        "reference_value": {
+          "max_trend_diff": 0.0,
+          "max_cycle_diff": 0.0
+        },
+        "difference": 5.696421112588723e-11,
+        "abs_tolerance": 1e-08,
+        "rel_tolerance": 1e-07,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "lambda_100": {
+        "trend_diff": 1.4210854715202004e-12,
+        "cycle_diff": 1.4210854715202004e-12
+      },
+      "lambda_1600": {
+        "trend_diff": 2.7249313916399842e-11,
+        "cycle_diff": 2.7249313916399842e-11
+      },
+      "lambda_14400": {
+        "trend_diff": 5.696421112588723e-11,
+        "cycle_diff": 5.696421112588723e-11
+      }
+    },
+    "abs_tolerance": 1e-08,
+    "rel_tolerance": 1e-07,
+    "validation_method": "ANALYTICAL_GROUND_TRUTH",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_16_VAR_ANALYTICAL_OLS",
+    "estimator_name": "var",
+    "dataset_id": "simulated_var (2 series x 150 obs)",
+    "specification": "var y1 y2, lags(1) [Analytical Ground Truth]",
+    "reference_implementation": "Equation-by-Equation OLS: B = (X'X)^(-1) X'Y",
+    "reference_version": "Analytical Ground Truth",
+    "potatostics_version": "1.0.0",
+    "sample_size": 150,
+    "sample_selection": "Bivariate VAR(1) with constant (effective N=149)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "y1:L1.y1",
+        "y1:L1.y2",
+        "y1:_cons",
+        "y2:L1.y1",
+        "y2:L1.y2",
+        "y2:_cons"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "y1:L1.y1": 0.40393409456880947,
+        "y1:L1.y2": 0.1008760521749754,
+        "y1:_cons": -0.04625420435245061,
+        "y2:L1.y1": 0.18131061110746902,
+        "y2:L1.y2": 0.39724206706062765,
+        "y2:_cons": 0.02580510220165718
+      },
+      "reference_values": {
+        "y1:L1.y1": 0.40393409456880897,
+        "y1:L1.y2": 0.10087605217497551,
+        "y1:_cons": -0.04625420435245067,
+        "y2:L1.y1": 0.1813106111074689,
+        "y2:L1.y2": 0.39724206706062765,
+        "y2:_cons": 0.02580510220165714
+      },
+      "absolute_differences": {
+        "y1:L1.y1": 4.996003610813204e-16,
+        "y1:L1.y2": 1.1102230246251565e-16,
+        "y1:_cons": 6.245004513516506e-17,
+        "y2:L1.y1": 1.1102230246251565e-16,
+        "y2:L1.y2": 0.0,
+        "y2:_cons": 4.163336342344337e-17
+      },
+      "relative_differences": {
+        "y1:L1.y1": 1.2368363250312733e-15,
+        "y1:L1.y2": 1.100581357703619e-15,
+        "y1:_cons": 1.3501485110262476e-15,
+        "y2:L1.y1": 6.12332073585638e-16,
+        "y2:L1.y2": 0.0,
+        "y2:_cons": 1.613377195645045e-15
+      },
+      "max_abs_diff": 4.996003610813204e-16,
+      "max_rel_diff": 1.613377195645045e-15,
+      "abs_tolerance": 1e-09,
+      "rel_tolerance": 1e-07,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": null,
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "y1:_cons": -0.04625420435245061,
+          "y1:L1.y1": 0.40393409456880947,
+          "y1:L1.y2": 0.1008760521749754,
+          "y2:_cons": 0.02580510220165718,
+          "y2:L1.y1": 0.18131061110746902,
+          "y2:L1.y2": 0.39724206706062765
+        },
+        "reference_value": {
+          "y1:_cons": -0.04625420435245067,
+          "y1:L1.y1": 0.40393409456880897,
+          "y1:L1.y2": 0.10087605217497551,
+          "y2:_cons": 0.02580510220165714,
+          "y2:L1.y1": 0.1813106111074689,
+          "y2:L1.y2": 0.39724206706062765
+        },
+        "difference": 4.996003610813204e-16,
+        "abs_tolerance": 1e-09,
+        "rel_tolerance": 1e-07,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "lags": 1,
+      "n_equations": 2
+    },
+    "abs_tolerance": 1e-09,
+    "rel_tolerance": 1e-07,
+    "validation_method": "ANALYTICAL_GROUND_TRUTH",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_17_COX_BRESLOW_ANALYTICAL",
+    "estimator_name": "stcox",
+    "dataset_id": "simulated_survival (60 obs, right-censored)",
+    "specification": "stcox x, method(breslow) [Analytical Ground Truth]",
+    "reference_implementation": "Direct Scipy Numerical Optimization of Breslow Partial Log-Likelihood",
+    "reference_version": "Analytical Ground Truth",
+    "potatostics_version": "1.0.0",
+    "sample_size": 60,
+    "sample_selection": "60 observations (43 events, 17 censored)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "x"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "x": 0.7848211896610141
+      },
+      "reference_values": {
+        "x": 0.7848210499881364
+      },
+      "absolute_differences": {
+        "x": 1.39672877708108e-07
+      },
+      "relative_differences": {
+        "x": 1.7796780260954944e-07
+      },
+      "max_abs_diff": 1.39672877708108e-07,
+      "max_rel_diff": 1.7796780260954944e-07,
+      "abs_tolerance": 1e-05,
+      "rel_tolerance": 0.0001,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": null,
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "x": 0.7848211896610141
+        },
+        "reference_value": {
+          "x": 0.7848210499881364
+        },
+        "difference": 1.39672877708108e-07,
+        "abs_tolerance": 1e-05,
+        "rel_tolerance": 0.0001,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "optimizer_convergence",
+        "metric_type": "BOOLEAN_ASSERTION",
+        "potatostics_value": true,
+        "reference_value": true,
+        "difference": 0.0,
+        "abs_tolerance": null,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "events": 43,
+      "censored": 17,
+      "optimizer_success": true
+    },
+    "abs_tolerance": 1e-05,
+    "rel_tolerance": 0.0001,
+    "validation_method": "ANALYTICAL_GROUND_TRUTH",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_18_ORDERED_LOGIT",
+    "estimator_name": "ologit",
+    "dataset_id": "simulated_ordinal (120 obs, 3 categories)",
+    "specification": "ologit y x1 x2",
+    "reference_implementation": "statsmodels.miscmodels.ordinal_model.OrderedModel",
+    "reference_version": "0.15.0",
+    "potatostics_version": "1.0.0",
+    "sample_size": 120,
+    "sample_selection": "120 observations, 3 ordinal outcome levels",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "x1",
+        "x2"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "x1": 0.7746319077686644,
+        "x2": -0.2595626153832529
+      },
+      "reference_values": {
+        "x1": 0.7746319077686644,
+        "x2": -0.2595626153832529
+      },
+      "absolute_differences": {
+        "x1": 0.0,
+        "x2": 0.0
+      },
+      "relative_differences": {
+        "x1": 0.0,
+        "x2": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "max_rel_diff": 0.0,
+      "abs_tolerance": 1e-07,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": {
+      "matched_keys": [
+        "x1",
+        "x2"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "x1": 0.20401668085395858,
+        "x2": 0.16907846340894575
+      },
+      "reference_values": {
+        "x1": 0.20401668085395858,
+        "x2": 0.16907846340894575
+      },
+      "absolute_differences": {
+        "x1": 0.0,
+        "x2": 0.0
+      },
+      "relative_differences": {
+        "x1": 0.0,
+        "x2": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "max_rel_diff": 0.0,
+      "abs_tolerance": 1e-06,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "x1": 0.7746319077686644,
+          "x2": -0.2595626153832529
+        },
+        "reference_value": {
+          "x1": 0.7746319077686644,
+          "x2": -0.2595626153832529
+        },
+        "difference": 0.0,
+        "abs_tolerance": 1e-07,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "standard_errors",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "x1": 0.20401668085395858,
+          "x2": 0.16907846340894575
+        },
+        "reference_value": {
+          "x1": 0.20401668085395858,
+          "x2": 0.16907846340894575
+        },
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "cutpoints",
+        "metric_type": "VECTOR_NUMERICAL",
+        "potatostics_value": [
+          -0.6916072676683432,
+          1.0919596267978369
+        ],
+        "reference_value": [
+          -0.6916072676683432,
+          1.0919596267978369
+        ],
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "cutpoint_standard_errors",
+        "metric_type": "VECTOR_NUMERICAL",
+        "potatostics_value": [
+          0.2028285442607232,
+          0.2196036197147716
+        ],
+        "reference_value": [
+          0.2028285442607232,
+          0.2196036197147716
+        ],
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "predicted_probabilities",
+        "metric_type": "MATRIX_NUMERICAL",
+        "potatostics_value": [
+          [
+            0.2950347055318704,
+            0.4184790751126627,
+            0.2864862193554669
+          ],
+          [
+            0.3056477048073192,
+            0.41807846298747475,
+            0.27627383220520607
+          ],
+          [
+            0.30381118237895355,
+            0.4181784512991976,
+            0.27801036632184883
+          ],
+          [
+            0.09662825796834866,
+            0.29232933876475736,
+            0.611042403266894
+          ],
+          [
+            0.41146839176111927,
+            0.394757123251243,
+            0.19377448498763772
+          ],
+          [
+            0.5145766385373575,
+            0.34859543967085815,
+            0.13682792179178438
+          ],
+          [
+            0.1022911989799145,
+            0.30179803408959055,
+            0.5959107669304949
+          ],
+          [
+            0.19261979554562303,
+            0.39411671811989146,
+            0.4132634863344855
+          ],
+          [
+            0.4250511270770564,
+            0.3897471938166138,
+            0.1852016791063298
+          ],
+          [
+            0.22398807962837944,
+            0.4080550369563023,
+            0.3679568834153183
+          ],
+          [
+            0.3240714427890982,
+            0.4164044541604867,
+            0.25952410305041507
+          ],
+          [
+            0.4223724551200344,
+            0.39076473638702414,
+            0.18686280849294146
+          ],
+          [
+            0.23961830172324453,
+            0.4125975627469831,
+            0.3477841355297724
+          ],
+          [
+            0.7136969461203445,
+            0.22315093037069822,
+            0.06315212350895727
+          ],
+          [
+            0.6001094006148731,
+            0.29919213671848766,
+            0.10069846266663929
+          ],
+          [
+            0.5365008565598579,
+            0.3367298028307325,
+            0.1267693406094096
+          ],
+          [
+            0.4724431430406346,
+            0.3695625342554222,
+            0.1579943227039432
+          ],
+          [
+            0.2652946561406738,
+            0.417130314943606,
+            0.3175750289157202
+          ],
+          [
+            0.5555042610225325,
+            0.3259738704693613,
+            0.1185218685081062
+          ],
+          [
+            0.5207185999586719,
+            0.3453328766381747,
+            0.13394852340315344
+          ],
+          [
+            0.14580299709966835,
+            0.35811227795493106,
+            0.49608472494540057
+          ],
+          [
+            0.4557589139576043,
+            0.3771156698084733,
+            0.1671254162339224
+          ],
+          [
+            0.2384566940893809,
+            0.41230922097309175,
+            0.3492340849375274
+          ],
+          [
+            0.6130075776552223,
+            0.2910841928325114,
+            0.0959082295122663
+          ],
+          [
+            0.44955837923977127,
+            0.3798035267939355,
+            0.17063809396629326
+          ],
+          [
+            0.3601762032741232,
+            0.4099399949899883,
+            0.22988380173588852
+          ],
+          [
+            0.4697676543251735,
+            0.37080429382137886,
+            0.15942805185344766
+          ],
+          [
+            0.20992523903869462,
+            0.40265965267050396,
+            0.3874151082908014
+          ],
+          [
+            0.4773013986461178,
+            0.36727882533164596,
+            0.15541977602223622
+          ],
+          [
+            0.4040625875437777,
+            0.3973268417007812,
+            0.19861057075544108
+          ],
+          [
+            0.45996400772573304,
+            0.37525536397632636,
+            0.1647806282979406
+          ],
+          [
+            0.1154219662942412,
+            0.32167577920127566,
+            0.5629022545044832
+          ],
+          [
+            0.2978282860050921,
+            0.4184156805426518,
+            0.2837560334522561
+          ],
+          [
+            0.5468654627149848,
+            0.33091532530713474,
+            0.12221921197788044
+          ],
+          [
+            0.22223204381027434,
+            0.4074518020388492,
+            0.3703161541508765
+          ],
+          [
+            0.5171628184450191,
+            0.34722767544265554,
+            0.13560950611232536
+          ],
+          [
+            0.40875504051817,
+            0.3957122348152655,
+            0.19553272466656446
+          ],
+          [
+            0.7209955132738121,
+            0.21794892138524058,
+            0.06105556534094736
+          ],
+          [
+            0.507007084675711,
+            0.35254769897782134,
+            0.14044521634646767
+          ],
+          [
+            0.3376720896403185,
+            0.41443491115675646,
+            0.24789299920292507
+          ],
+          [
+            0.17995712950980197,
+            0.3863816768770391,
+            0.4336611936131589
+          ],
+          [
+            0.34976851780193485,
+            0.4122014019952943,
+            0.23803008020277083
+          ],
+          [
+            0.42524110658251746,
+            0.3896744877970947,
+            0.18508440562038786
+          ],
+          [
+            0.3381876390617572,
+            0.41434873131681704,
+            0.24746362962142576
+          ],
+          [
+            0.6690207674074226,
+            0.2542277939432461,
+            0.07675143864933132
+          ],
+          [
+            0.49328778369665843,
+            0.3595101536852697,
+            0.1472020626180719
+          ],
+          [
+            0.4696858019853034,
+            0.3708421034217121,
+            0.1594720945929845
+          ],
+          [
+            0.26538765599353603,
+            0.41714069958064,
+            0.317471644425824
+          ],
+          [
+            0.2647394989325194,
+            0.4170674673884828,
+            0.31819303367899776
+          ],
+          [
+            0.6173837259560142,
+            0.28829903055921047,
+            0.09431724348477533
+          ],
+          [
+            0.23621611602217057,
+            0.41173133588870786,
+            0.35205254808912156
+          ],
+          [
+            0.35318596454100887,
+            0.41149253137840364,
+            0.2353215040805875
+          ],
+          [
+            0.45332266053921033,
+            0.3781796844478371,
+            0.16849765501295255
+          ],
+          [
+            0.2540967235975617,
+            0.4155717403306623,
+            0.330331536071776
+          ],
+          [
+            0.19490723064041757,
+            0.39537520871884213,
+            0.4097175606407403
+          ],
+          [
+            0.2317776476957984,
+            0.4105006040346893,
+            0.3577217482695123
+          ],
+          [
+            0.4904642084983298,
+            0.36090987643872624,
+            0.14862591506294398
+          ],
+          [
+            0.4813091163884548,
+            0.3653673691888361,
+            0.15332351442270908
+          ],
+          [
+            0.2656298272538095,
+            0.41716754816958695,
+            0.31720262457660353
+          ],
+          [
+            0.3227327374308732,
+            0.4165657197958756,
+            0.2607015427732512
+          ],
+          [
+            0.4605760653439095,
+            0.3749821123524668,
+            0.1644418223036237
+          ],
+          [
+            0.3164194141339186,
+            0.4172442826756715,
+            0.2663363031904099
+          ],
+          [
+            0.4718875413089268,
+            0.36982133919822996,
+            0.15829111949284325
+          ],
+          [
+            0.5890995838825414,
+            0.30598945978799574,
+            0.1049109563294629
+          ],
+          [
+            0.20116671447149992,
+            0.39861330676948714,
+            0.40021997875901294
+          ],
+          [
+            0.17409678220567892,
+            0.38233689775343116,
+            0.4435663200408899
+          ],
+          [
+            0.3744925960206512,
+            0.4063486966096035,
+            0.2191587073697453
+          ],
+          [
+            0.18424021110949493,
+            0.3891477082059869,
+            0.42661208068451817
+          ],
+          [
+            0.2329839671445472,
+            0.4108465509891208,
+            0.356169481866332
+          ],
+          [
+            0.35776575940652333,
+            0.4104906979224132,
+            0.23174354267106345
+          ],
+          [
+            0.25209793000413216,
+            0.4152273640358223,
+            0.33267470596004556
+          ],
+          [
+            0.1596639796347338,
+            0.3710065993267011,
+            0.4693294210385651
+          ],
+          [
+            0.3524506162113572,
+            0.4116478818864786,
+            0.2359015019021642
+          ],
+          [
+            0.0973539338214359,
+            0.2935746849487173,
+            0.6090713812298467
+          ],
+          [
+            0.7994214237488508,
+            0.16012280376504928,
+            0.040455772486099884
+          ],
+          [
+            0.22648520301593772,
+            0.4088795479346535,
+            0.3646352490494088
+          ],
+          [
+            0.27121773711230385,
+            0.41771057852985477,
+            0.3110716843578414
+          ],
+          [
+            0.39649632853536176,
+            0.39982862992717716,
+            0.20367504153746108
+          ],
+          [
+            0.32134899094066666,
+            0.41672607989103766,
+            0.2619249291682957
+          ],
+          [
+            0.6344498282740166,
+            0.2772783989756683,
+            0.08827177275031506
+          ],
+          [
+            0.3944668529124709,
+            0.40047782259260806,
+            0.20505532449492103
+          ],
+          [
+            0.3051952019116701,
+            0.4181042668256099,
+            0.27670053126272
+          ],
+          [
+            0.17432044055887436,
+            0.3824969280801514,
+            0.44318263136097424
+          ],
+          [
+            0.49584734472859204,
+            0.35823135310405674,
+            0.14592130216735122
+          ],
+          [
+            0.39581971646770114,
+            0.4000461073456621,
+            0.20413417618663676
+          ],
+          [
+            0.36671058900241393,
+            0.40836781693981206,
+            0.224921594057774
+          ],
+          [
+            0.2197672817770608,
+            0.40657196399742923,
+            0.37366075422550993
+          ],
+          [
+            0.3072710070662223,
+            0.4179796550802202,
+            0.2747493378535575
+          ],
+          [
+            0.46317903264809807,
+            0.37381305950985316,
+            0.16300790784204877
+          ],
+          [
+            0.4777208780648458,
+            0.36707991553016645,
+            0.15519920640498774
+          ],
+          [
+            0.3500942835742966,
+            0.4121352753072519,
+            0.23777044111845147
+          ],
+          [
+            0.24100084998431542,
+            0.4129308364382172,
+            0.34606831357746737
+          ],
+          [
+            0.5249414449233374,
+            0.34306150595374585,
+            0.13199704912291677
+          ],
+          [
+            0.43322310416085047,
+            0.3865563510556524,
+            0.18022054478349714
+          ],
+          [
+            0.38468727792760815,
+            0.40347224816825256,
+            0.2118404739041393
+          ],
+          [
+            0.6545450441969276,
+            0.2639928373706588,
+            0.08146211843241358
+          ],
+          [
+            0.24571684157340293,
+            0.41398793411295653,
+            0.34029522431364057
+          ],
+          [
+            0.27782054677446816,
+            0.41816816878506696,
+            0.3040112844404649
+          ],
+          [
+            0.3054346211275999,
+            0.41809070882742194,
+            0.27647467004497817
+          ],
+          [
+            0.38021467910327195,
+            0.40476575611548465,
+            0.2150195647812434
+          ],
+          [
+            0.7321548267498381,
+            0.20993184882014226,
+            0.05791332443001962
+          ],
+          [
+            0.29934177878519513,
+            0.4183686268748869,
+            0.28228959433991796
+          ],
+          [
+            0.43831529210960873,
+            0.38450374812117893,
+            0.17718095976921233
+          ],
+          [
+            0.38019080266813027,
+            0.4047725302734167,
+            0.21503666705845303
+          ],
+          [
+            0.3342186089035498,
+            0.41499090885741896,
+            0.2507904822390312
+          ],
+          [
+            0.32696436490161734,
+            0.4160356056723536,
+            0.25700002942602906
+          ],
+          [
+            0.10564462304238965,
+            0.3071424807522523,
+            0.587212896205358
+          ],
+          [
+            0.24850845949026487,
+            0.41455672775605823,
+            0.33693481275367687
+          ],
+          [
+            0.2541158325794921,
+            0.4155749335462706,
+            0.3303092338742373
+          ],
+          [
+            0.3875693486246051,
+            0.40261317649205175,
+            0.20981747488334312
+          ],
+          [
+            0.6468355476428272,
+            0.2691279425287342,
+            0.08403650982843858
+          ],
+          [
+            0.35094584888524133,
+            0.41196097222675904,
+            0.23709317888799963
+          ],
+          [
+            0.3259775809472881,
+            0.4161645293958923,
+            0.25785788965681955
+          ],
+          [
+            0.05903117612379764,
+            0.212814711897943,
+            0.7281541119782593
+          ],
+          [
+            0.503472296308739,
+            0.35436671405025333,
+            0.14216098964100765
+          ],
+          [
+            0.31850434003241823,
+            0.417035310003147,
+            0.2644603499644348
+          ],
+          [
+            0.23319281644878165,
+            0.410905570612523,
+            0.3559016129386954
+          ],
+          [
+            0.5651486633773347,
+            0.3203588250572752,
+            0.11449251156539009
+          ],
+          [
+            0.1482176404710473,
+            0.36051086873502763,
+            0.49127149079392507
+          ],
+          [
+            0.25868418871400706,
+            0.4162852350290253,
+            0.32503057625696763
+          ]
+        ],
+        "reference_value": [
+          [
+            0.2950347055318704,
+            0.4184790751126627,
+            0.2864862193554669
+          ],
+          [
+            0.3056477048073192,
+            0.41807846298747475,
+            0.27627383220520607
+          ],
+          [
+            0.30381118237895355,
+            0.4181784512991976,
+            0.27801036632184883
+          ],
+          [
+            0.09662825796834866,
+            0.29232933876475736,
+            0.611042403266894
+          ],
+          [
+            0.41146839176111927,
+            0.394757123251243,
+            0.19377448498763772
+          ],
+          [
+            0.5145766385373575,
+            0.34859543967085815,
+            0.13682792179178438
+          ],
+          [
+            0.1022911989799145,
+            0.30179803408959055,
+            0.5959107669304949
+          ],
+          [
+            0.19261979554562303,
+            0.39411671811989146,
+            0.4132634863344855
+          ],
+          [
+            0.4250511270770564,
+            0.3897471938166138,
+            0.1852016791063298
+          ],
+          [
+            0.22398807962837944,
+            0.4080550369563023,
+            0.3679568834153183
+          ],
+          [
+            0.3240714427890982,
+            0.4164044541604867,
+            0.25952410305041507
+          ],
+          [
+            0.4223724551200344,
+            0.39076473638702414,
+            0.18686280849294146
+          ],
+          [
+            0.23961830172324453,
+            0.4125975627469831,
+            0.3477841355297724
+          ],
+          [
+            0.7136969461203445,
+            0.22315093037069822,
+            0.06315212350895727
+          ],
+          [
+            0.6001094006148731,
+            0.29919213671848766,
+            0.10069846266663929
+          ],
+          [
+            0.5365008565598579,
+            0.3367298028307325,
+            0.1267693406094096
+          ],
+          [
+            0.4724431430406346,
+            0.3695625342554222,
+            0.1579943227039432
+          ],
+          [
+            0.2652946561406738,
+            0.417130314943606,
+            0.3175750289157202
+          ],
+          [
+            0.5555042610225325,
+            0.3259738704693613,
+            0.1185218685081062
+          ],
+          [
+            0.5207185999586719,
+            0.3453328766381747,
+            0.13394852340315344
+          ],
+          [
+            0.14580299709966835,
+            0.35811227795493106,
+            0.49608472494540057
+          ],
+          [
+            0.4557589139576043,
+            0.3771156698084733,
+            0.1671254162339224
+          ],
+          [
+            0.2384566940893809,
+            0.41230922097309175,
+            0.3492340849375274
+          ],
+          [
+            0.6130075776552223,
+            0.2910841928325114,
+            0.0959082295122663
+          ],
+          [
+            0.44955837923977127,
+            0.3798035267939355,
+            0.17063809396629326
+          ],
+          [
+            0.3601762032741232,
+            0.4099399949899883,
+            0.22988380173588852
+          ],
+          [
+            0.4697676543251735,
+            0.37080429382137886,
+            0.15942805185344766
+          ],
+          [
+            0.20992523903869462,
+            0.40265965267050396,
+            0.3874151082908014
+          ],
+          [
+            0.4773013986461178,
+            0.36727882533164596,
+            0.15541977602223622
+          ],
+          [
+            0.4040625875437777,
+            0.3973268417007812,
+            0.19861057075544108
+          ],
+          [
+            0.45996400772573304,
+            0.37525536397632636,
+            0.1647806282979406
+          ],
+          [
+            0.1154219662942412,
+            0.32167577920127566,
+            0.5629022545044832
+          ],
+          [
+            0.2978282860050921,
+            0.4184156805426518,
+            0.2837560334522561
+          ],
+          [
+            0.5468654627149848,
+            0.33091532530713474,
+            0.12221921197788044
+          ],
+          [
+            0.22223204381027434,
+            0.4074518020388492,
+            0.3703161541508765
+          ],
+          [
+            0.5171628184450191,
+            0.34722767544265554,
+            0.13560950611232536
+          ],
+          [
+            0.40875504051817,
+            0.3957122348152655,
+            0.19553272466656446
+          ],
+          [
+            0.7209955132738121,
+            0.21794892138524058,
+            0.06105556534094736
+          ],
+          [
+            0.507007084675711,
+            0.35254769897782134,
+            0.14044521634646767
+          ],
+          [
+            0.3376720896403185,
+            0.41443491115675646,
+            0.24789299920292507
+          ],
+          [
+            0.17995712950980197,
+            0.3863816768770391,
+            0.4336611936131589
+          ],
+          [
+            0.34976851780193485,
+            0.4122014019952943,
+            0.23803008020277083
+          ],
+          [
+            0.42524110658251746,
+            0.3896744877970947,
+            0.18508440562038786
+          ],
+          [
+            0.3381876390617572,
+            0.41434873131681704,
+            0.24746362962142576
+          ],
+          [
+            0.6690207674074226,
+            0.2542277939432461,
+            0.07675143864933132
+          ],
+          [
+            0.49328778369665843,
+            0.3595101536852697,
+            0.1472020626180719
+          ],
+          [
+            0.4696858019853034,
+            0.3708421034217121,
+            0.1594720945929845
+          ],
+          [
+            0.26538765599353603,
+            0.41714069958064,
+            0.317471644425824
+          ],
+          [
+            0.2647394989325194,
+            0.4170674673884828,
+            0.31819303367899776
+          ],
+          [
+            0.6173837259560142,
+            0.28829903055921047,
+            0.09431724348477533
+          ],
+          [
+            0.23621611602217057,
+            0.41173133588870786,
+            0.35205254808912156
+          ],
+          [
+            0.35318596454100887,
+            0.41149253137840364,
+            0.2353215040805875
+          ],
+          [
+            0.45332266053921033,
+            0.3781796844478371,
+            0.16849765501295255
+          ],
+          [
+            0.2540967235975617,
+            0.4155717403306623,
+            0.330331536071776
+          ],
+          [
+            0.19490723064041757,
+            0.39537520871884213,
+            0.4097175606407403
+          ],
+          [
+            0.2317776476957984,
+            0.4105006040346893,
+            0.3577217482695123
+          ],
+          [
+            0.4904642084983298,
+            0.36090987643872624,
+            0.14862591506294398
+          ],
+          [
+            0.4813091163884548,
+            0.3653673691888361,
+            0.15332351442270908
+          ],
+          [
+            0.2656298272538095,
+            0.41716754816958695,
+            0.31720262457660353
+          ],
+          [
+            0.3227327374308732,
+            0.4165657197958756,
+            0.2607015427732512
+          ],
+          [
+            0.4605760653439095,
+            0.3749821123524668,
+            0.1644418223036237
+          ],
+          [
+            0.3164194141339186,
+            0.4172442826756715,
+            0.2663363031904099
+          ],
+          [
+            0.4718875413089268,
+            0.36982133919822996,
+            0.15829111949284325
+          ],
+          [
+            0.5890995838825414,
+            0.30598945978799574,
+            0.1049109563294629
+          ],
+          [
+            0.20116671447149992,
+            0.39861330676948714,
+            0.40021997875901294
+          ],
+          [
+            0.17409678220567892,
+            0.38233689775343116,
+            0.4435663200408899
+          ],
+          [
+            0.3744925960206512,
+            0.4063486966096035,
+            0.2191587073697453
+          ],
+          [
+            0.18424021110949493,
+            0.3891477082059869,
+            0.42661208068451817
+          ],
+          [
+            0.2329839671445472,
+            0.4108465509891208,
+            0.356169481866332
+          ],
+          [
+            0.35776575940652333,
+            0.4104906979224132,
+            0.23174354267106345
+          ],
+          [
+            0.25209793000413216,
+            0.4152273640358223,
+            0.33267470596004556
+          ],
+          [
+            0.1596639796347338,
+            0.3710065993267011,
+            0.4693294210385651
+          ],
+          [
+            0.3524506162113572,
+            0.4116478818864786,
+            0.2359015019021642
+          ],
+          [
+            0.0973539338214359,
+            0.2935746849487173,
+            0.6090713812298467
+          ],
+          [
+            0.7994214237488508,
+            0.16012280376504928,
+            0.040455772486099884
+          ],
+          [
+            0.22648520301593772,
+            0.4088795479346535,
+            0.3646352490494088
+          ],
+          [
+            0.27121773711230385,
+            0.41771057852985477,
+            0.3110716843578414
+          ],
+          [
+            0.39649632853536176,
+            0.39982862992717716,
+            0.20367504153746108
+          ],
+          [
+            0.32134899094066666,
+            0.41672607989103766,
+            0.2619249291682957
+          ],
+          [
+            0.6344498282740166,
+            0.2772783989756683,
+            0.08827177275031506
+          ],
+          [
+            0.3944668529124709,
+            0.40047782259260806,
+            0.20505532449492103
+          ],
+          [
+            0.3051952019116701,
+            0.4181042668256099,
+            0.27670053126272
+          ],
+          [
+            0.17432044055887436,
+            0.3824969280801514,
+            0.44318263136097424
+          ],
+          [
+            0.49584734472859204,
+            0.35823135310405674,
+            0.14592130216735122
+          ],
+          [
+            0.39581971646770114,
+            0.4000461073456621,
+            0.20413417618663676
+          ],
+          [
+            0.36671058900241393,
+            0.40836781693981206,
+            0.224921594057774
+          ],
+          [
+            0.2197672817770608,
+            0.40657196399742923,
+            0.37366075422550993
+          ],
+          [
+            0.3072710070662223,
+            0.4179796550802202,
+            0.2747493378535575
+          ],
+          [
+            0.46317903264809807,
+            0.37381305950985316,
+            0.16300790784204877
+          ],
+          [
+            0.4777208780648458,
+            0.36707991553016645,
+            0.15519920640498774
+          ],
+          [
+            0.3500942835742966,
+            0.4121352753072519,
+            0.23777044111845147
+          ],
+          [
+            0.24100084998431542,
+            0.4129308364382172,
+            0.34606831357746737
+          ],
+          [
+            0.5249414449233374,
+            0.34306150595374585,
+            0.13199704912291677
+          ],
+          [
+            0.43322310416085047,
+            0.3865563510556524,
+            0.18022054478349714
+          ],
+          [
+            0.38468727792760815,
+            0.40347224816825256,
+            0.2118404739041393
+          ],
+          [
+            0.6545450441969276,
+            0.2639928373706588,
+            0.08146211843241358
+          ],
+          [
+            0.24571684157340293,
+            0.41398793411295653,
+            0.34029522431364057
+          ],
+          [
+            0.27782054677446816,
+            0.41816816878506696,
+            0.3040112844404649
+          ],
+          [
+            0.3054346211275999,
+            0.41809070882742194,
+            0.27647467004497817
+          ],
+          [
+            0.38021467910327195,
+            0.40476575611548465,
+            0.2150195647812434
+          ],
+          [
+            0.7321548267498381,
+            0.20993184882014226,
+            0.05791332443001962
+          ],
+          [
+            0.29934177878519513,
+            0.4183686268748869,
+            0.28228959433991796
+          ],
+          [
+            0.43831529210960873,
+            0.38450374812117893,
+            0.17718095976921233
+          ],
+          [
+            0.38019080266813027,
+            0.4047725302734167,
+            0.21503666705845303
+          ],
+          [
+            0.3342186089035498,
+            0.41499090885741896,
+            0.2507904822390312
+          ],
+          [
+            0.32696436490161734,
+            0.4160356056723536,
+            0.25700002942602906
+          ],
+          [
+            0.10564462304238965,
+            0.3071424807522523,
+            0.587212896205358
+          ],
+          [
+            0.24850845949026487,
+            0.41455672775605823,
+            0.33693481275367687
+          ],
+          [
+            0.2541158325794921,
+            0.4155749335462706,
+            0.3303092338742373
+          ],
+          [
+            0.3875693486246051,
+            0.40261317649205175,
+            0.20981747488334312
+          ],
+          [
+            0.6468355476428272,
+            0.2691279425287342,
+            0.08403650982843858
+          ],
+          [
+            0.35094584888524133,
+            0.41196097222675904,
+            0.23709317888799963
+          ],
+          [
+            0.3259775809472881,
+            0.4161645293958923,
+            0.25785788965681955
+          ],
+          [
+            0.05903117612379764,
+            0.212814711897943,
+            0.7281541119782593
+          ],
+          [
+            0.503472296308739,
+            0.35436671405025333,
+            0.14216098964100765
+          ],
+          [
+            0.31850434003241823,
+            0.417035310003147,
+            0.2644603499644348
+          ],
+          [
+            0.23319281644878165,
+            0.410905570612523,
+            0.3559016129386954
+          ],
+          [
+            0.5651486633773347,
+            0.3203588250572752,
+            0.11449251156539009
+          ],
+          [
+            0.1482176404710473,
+            0.36051086873502763,
+            0.49127149079392507
+          ],
+          [
+            0.25868418871400706,
+            0.4162852350290253,
+            0.32503057625696763
+          ]
+        ],
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "log_likelihood",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": -121.81977497505088,
+        "reference_value": -121.81977497505088,
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "predicted_probabilities_sum_to_one",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": 1.1102230246251565e-16,
+        "reference_value": 0.0,
+        "difference": 1.1102230246251565e-16,
+        "abs_tolerance": 1e-12,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "convergence",
+        "metric_type": "BOOLEAN_ASSERTION",
+        "potatostics_value": true,
+        "reference_value": true,
+        "difference": 0.0,
+        "abs_tolerance": null,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "ll_potatostics": -121.81977497505088,
+      "ll_reference": -121.81977497505088,
+      "cuts": [
+        -0.6916072676683432,
+        1.0919596267978369
+      ],
+      "cuts_diff": 0.0,
+      "cut_se_diff": 0.0,
+      "prob_sum_err": 1.1102230246251565e-16,
+      "converged": true
+    },
+    "abs_tolerance": 1e-07,
+    "rel_tolerance": 1e-05,
+    "validation_method": "INTERNAL_CONSISTENCY",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  },
+  {
+    "benchmark_id": "BENCH_19_COX_PHREG",
+    "estimator_name": "stcox",
+    "dataset_id": "simulated_survival (80 obs, right-censored)",
+    "specification": "stcox x1, method(breslow)",
+    "reference_implementation": "statsmodels.duration.hazard_regression.PHReg",
+    "reference_version": "0.15.0",
+    "potatostics_version": "1.0.0",
+    "sample_size": 80,
+    "sample_selection": "80 observations (57 events, 23 censored)",
+    "coefficient_comparison": {
+      "matched_keys": [
+        "x1"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "x1": 0.903234253273328
+      },
+      "reference_values": {
+        "x1": 0.903234253273328
+      },
+      "absolute_differences": {
+        "x1": 0.0
+      },
+      "relative_differences": {
+        "x1": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "max_rel_diff": 0.0,
+      "abs_tolerance": 1e-07,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "standard_error_comparison": {
+      "matched_keys": [
+        "x1"
+      ],
+      "missing_in_potatostics": [],
+      "missing_in_reference": [],
+      "potatostics_values": {
+        "x1": 0.18220436220017922
+      },
+      "reference_values": {
+        "x1": 0.18220436220017922
+      },
+      "absolute_differences": {
+        "x1": 0.0
+      },
+      "relative_differences": {
+        "x1": 0.0
+      },
+      "max_abs_diff": 0.0,
+      "max_rel_diff": 0.0,
+      "abs_tolerance": 1e-06,
+      "rel_tolerance": 1e-05,
+      "failure_reasons": [],
+      "passed": true
+    },
+    "covariance_comparison": null,
+    "metrics": [
+      {
+        "metric_name": "coefficients",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "x1": 0.903234253273328
+        },
+        "reference_value": {
+          "x1": 0.903234253273328
+        },
+        "difference": 0.0,
+        "abs_tolerance": 1e-07,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "standard_errors",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "x1": 0.18220436220017922
+        },
+        "reference_value": {
+          "x1": 0.18220436220017922
+        },
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": 1e-05,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "hazard_ratios",
+        "metric_type": "NAMED_PARAMETER",
+        "potatostics_value": {
+          "x1": 2.4675709686593246
+        },
+        "reference_value": {
+          "x1": 2.4675709686593246
+        },
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "log_partial_likelihood",
+        "metric_type": "SCALAR_NUMERICAL",
+        "potatostics_value": -202.99692514161072,
+        "reference_value": -202.99692514161072,
+        "difference": 0.0,
+        "abs_tolerance": 1e-06,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      },
+      {
+        "metric_name": "convergence",
+        "metric_type": "BOOLEAN_ASSERTION",
+        "potatostics_value": true,
+        "reference_value": true,
+        "difference": 0.0,
+        "abs_tolerance": null,
+        "rel_tolerance": null,
+        "evaluation_method": "numerical_comparison",
+        "is_mandatory": true,
+        "status": "PASS",
+        "failure_explanation": null,
+        "key_aliases": null
+      }
+    ],
+    "additional_diagnostics": {
+      "events": 57,
+      "censored": 23,
+      "hazard_ratio_diff": 0.0,
+      "log_likelihood_diff": 0.0,
+      "converged": true
+    },
+    "abs_tolerance": 1e-07,
+    "rel_tolerance": 1e-05,
+    "validation_method": "INTERNAL_CONSISTENCY",
+    "timestamp": "2026-11-25T14:54:58.738943+00:00",
+    "execution_environment": {
+      "python_version": "3.14.2",
+      "os": "Windows",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel"
+    },
+    "status": "PASS",
+    "failure_explanation": null
+  }
+]
